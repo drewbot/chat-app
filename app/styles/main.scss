@@ -17,7 +17,8 @@ body {
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
+.message-area,
+.message-post,
 .footer {
     padding-left: 15px;
     padding-right: 15px;
@@ -25,6 +26,7 @@ body {
 
 /* Custom page header */
 .header {
+    position: relative;
     border-bottom: 1px solid #e5e5e5;
 
     /* Make the masthead heading the same height as the navigation */
@@ -36,33 +38,111 @@ body {
     }
 }
 
+.button {
+    background-color: grey;
+    border-radius: 4px;
+    color: white;
+    font-size: 1.2em;
+    letter-spacing: .05em;
+    text-align: center;
+    line-height: 27px;
+    cursor: pointer;
+}
+
+.login-form {
+    display: none;
+}
+
+.login {
+    position: absolute;
+    display: inline-block;
+    top: 5px;
+    right: 20px;
+    width: 60px;
+    height: 30px;
+}
+
+.login-type {
+    // display: none;
+    position: absolute;
+    display: inline-block;
+    top: 5px;
+    right: 20px;
+    color: grey;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.username {
+    position: absolute;
+    display: none;
+    top: 5px;
+    right: 20px;
+    width: 200px;
+    height: 30px;
+    color: grey;
+    font-size: 1em;
+    letter-spacing: .05em;
+    line-height: .05em;
+    text-align: center;
+    line-height: 27px;
+}
+
+//Overall Message container
+.message-gateway {
+    display: none;
+}
+
+// Message Area
+.message-area {
+    height: 350px;
+    overflow-y: auto; 
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.message-container {
+    position: relative;
+    display: block;
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+img {
+    max-width: 720px;
+}
+
+// Message Post
+.message-post {
+    position: relative;
+    height: 70px;
+}
+
+.message-type {
+    position: absolute;
+    display: inline-block;
+    top: 20px;
+    left: 150px;
+    width: 450px;
+    height: 30px;
+    border-radius: 4px;
+    color: grey;
+}
+
+.post {
+    position: absolute;
+    display: inline-block;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 30px;
+}
+
 /* Custom page footer */
 .footer {
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-    margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-    .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-    }
-}
-
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
-    p + h4 {
-        margin-top: 28px;
-    }
 }
 
 /* Responsive: Portrait tablets and up */
@@ -71,21 +151,4 @@ body {
         max-width: 730px;
     }
 
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-    
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
 }
