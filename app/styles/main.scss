@@ -59,6 +59,11 @@ body {
     text-align: center;
     line-height: 27px;
     cursor: pointer;
+
+    &:hover {
+        background-color: #91AAD0;
+        border: 1px solid white;
+    }
 }
 
 .login-form {
@@ -149,12 +154,14 @@ body {
 }
 
 .user {
+    margin-bottom: 3px;
     font-size: 1.07em;
     color: #617AA1;
     text-decoration: underline;
 }
 
 .message {
+    margin-left: 3px;
     color: #242B36;
 }
 
