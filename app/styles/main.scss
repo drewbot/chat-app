@@ -13,33 +13,45 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    font-family: 'Droid Sans', sans-serif;
+    background-color: #242B36;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .message-area,
-.message-post,
 .footer {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Custom page header */
 .header {
     position: relative;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #617AA1;
 
     /* Make the masthead heading the same height as the navigation */
     h3 {
+        display: inline-block;
         margin-top: 0;
         margin-bottom: 0;
         line-height: 40px;
         padding-bottom: 19px;
+        font-family: 'Droid Serif', serif;
+        font-weight: 700;
+        color: white;
     }
 }
 
+.chat {
+    display: inline-block;
+    padding-left: 2px;
+    font-weight: 400;
+    color: #9EB1CE;
+}
+
 .button {
-    background-color: grey;
+    background-color: #617AA1;
     border-radius: 4px;
     color: white;
     font-size: 1.2em;
@@ -68,7 +80,7 @@ body {
     display: inline-block;
     top: 5px;
     right: 20px;
-    color: grey;
+    color: #617AA1;
     height: 30px;
     border-radius: 4px;
 }
@@ -76,16 +88,37 @@ body {
 .username {
     position: absolute;
     display: none;
-    top: 5px;
-    right: 20px;
+    top: 11px;
+    right: 0px;
     width: 200px;
     height: 30px;
-    color: grey;
+    color: #AEC0DD;
     font-size: 1em;
     letter-spacing: .05em;
     line-height: .05em;
     text-align: center;
     line-height: 27px;
+}
+
+//Placeholder div when you get to the site
+.placeholder {
+    position: relative;
+    height: 420px;
+    color: #F2F5F9;
+
+    h1 {
+        position: absolute;
+        font-family: 'Droid Serif', serif;
+        top: 10px;
+        right: 20px;
+    }
+
+    h2 {
+        position: absolute;
+        font-family: 'Droid Serif', serif;
+        top: 70px;
+        right: 20px;
+    }
 }
 
 //Overall Message container
@@ -97,17 +130,46 @@ body {
 .message-area {
     height: 350px;
     overflow-y: auto; 
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #617AA1;
+    background-color: #FCFDFF;
 }
 
 .message-container {
     position: relative;
     display: block;
-    margin: 10px 0 10px 0;
-    padding: 10px 0 10px 0;
-    border-bottom: 1px solid #e5e5e5;
+    margin: 10px 0 0 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #617AA1;
 }
 
+.user,
+.message,
+.time {
+    padding-bottom: 5px;
+}
+
+.user {
+    font-size: 1.07em;
+    color: #617AA1;
+    text-decoration: underline;
+}
+
+.message {
+    color: #242B36;
+}
+
+.time {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    font-family: 'Droid Serif', serif;
+    font-size: 0.8em;
+    font-weight: 400;
+    font-style: italic;
+    color: #617AA1;
+}
+
+//attempt to manage image size on render from message
 img {
     max-width: 720px;
 }
@@ -121,12 +183,12 @@ img {
 .message-type {
     position: absolute;
     display: inline-block;
+    padding: 0 10px 0 10px;
     top: 20px;
-    left: 150px;
-    width: 450px;
+    width: 100%;
     height: 30px;
     border-radius: 4px;
-    color: grey;
+    color: #617AA1;
 }
 
 .post {
@@ -142,7 +204,8 @@ img {
 .footer {
     padding-top: 19px;
     color: #777;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #617AA1;
+    color: #617AA1;
 }
 
 /* Responsive: Portrait tablets and up */

@@ -1,3 +1,4 @@
+//Show login form
 $('.login').click(function(){
 	$('.login-form').show( 200, function() {
     });
@@ -17,38 +18,16 @@ $('.login-form').submit(function(event){
 		event.preventDefault();
 		alert('You must enter a username to continue')
 	} else {
+		$( ".login-form" ).hide( "fast" );
+    	$( ".placeholder" ).hide( "fast" );
     	$('.message-gateway').show( 1000, function() {
     	});
-    	$( ".login-form" ).hide( "fast" );
   	}
   	event.preventDefault();
 });
 
 
-//Login functionality
-// function doIt() {
-//   $( "span,div" ).show( "slow" );
-// }
-// // Can pass in function name
-// $( "button" ).click( doIt );
- 
-// $( "form" ).submit(function( event ) {
-//   if ( $( "input" ).val() === "yes" ) {
-//     $( "p" ).show( 4000, function() {
-//       $( this ).text( "Ok, DONE! (now showing)" );
-//     });
-//   }
-//   $( "span,div" ).hide( "fast" );
- 
-//   // Prevent form submission
-//   event.preventDefault();
-// });
-
-
-
-
 //Add and remove input values
-
 $('.login-type').focusin(function(){
 	$(this).attr('value', "");
 });
@@ -65,7 +44,7 @@ $('.message-type').focusin(function(){
 
 $('.message-type').focusout(function(){
 	if ($(this).attr('value') == ""){
-		$(this).attr('value', " type new message")
+		$(this).attr('value', " type a new message and press enter")
 	};
 });
 
@@ -76,10 +55,13 @@ var showMessages = _.template($('.messages').text());
 $.getJSON('http://tiny-pizza-server.herokuapp.com/collections/chat-messages').done(function(data){
 	data = data.splice(0,50);
 	renderMessages(data);
+	// setTimeout(function(){
+	//   renderMessages(data);
+	// },1000);
 });
 
 //Display messages
-function renderMessages (array) {	
+function renderMessages (array) {
 	array.forEach(function(info){
 	  if (info.user && info.message && info.time) {
 	  	var rendered = showMessages( info ); 
@@ -88,21 +70,35 @@ function renderMessages (array) {
 	});
 };
 
+// setTimeout('renderMessages()', 1000);
+
 //Post a new message constructor
 function Post (newMessage, username) {
-	var x = new Date();
+	// var x = new Date();
 	$.post('http://tiny-pizza-server.herokuapp.com/collections/chat-messages', {
 		user: username, 
 		message: newMessage, 
-		time: x.toString(), 
+		// time: x.toString(), 
+		time: Date.now(), 
 		meta: "", 
 		appID: "drewbot"})
 };
 
-//Post a new message instance on click
-$('.post').click(function(){
-	var message = $('.message-type').val();
-	freshPost = new Post(message, username);
+//Post a new message instance on submit
+$('.message-form').submit(function(event){
+	if ( $('.message-type').val() == "" ) {
+		event.preventDefault();
+		alert('You must enter a message')
+	} else if ( $('.message-type').val() == " " ) {
+		event.preventDefault();
+		alert('You must enter a message')
+	} else {
+    	var message = $('.message-type').val();
+		freshPost = new Post(message, username);
+  	}
+  	event.preventDefault();
+  	//Delete the input value on submit
+  	$('.message-form')[0].reset();
 });
 
 
@@ -113,5 +109,4 @@ $('.post').click(function(){
 // meta:"", 
 // appID: static tag for identification
 // }
-
 
