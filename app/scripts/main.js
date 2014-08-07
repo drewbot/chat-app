@@ -1,8 +1,13 @@
+//Click logo to refresh
+$('.logo-reload').click(function(){
+	document.location.reload(true);
+});
+
 //Show login form
 $('.login').click(function(){
 	$('.login-form').show( 200, function() {
     });
-    $( ".login" ).hide( "fast" );
+    $('.login').hide( "fast" );
 })
 
 //Store username
@@ -25,7 +30,6 @@ $('.login-form').submit(function(event){
   	}
   	event.preventDefault();
 });
-
 
 //Add and remove input values
 $('.login-type').focusin(function(){
@@ -51,14 +55,16 @@ $('.message-type').focusout(function(){
 //Messages Template
 var showMessages = _.template($('.messages').text());
 
-//Fetch repo
-$.getJSON('http://tiny-pizza-server.herokuapp.com/collections/chat-messages').done(function(data){
-	data = data.splice(0,50);
-	renderMessages(data);
-	// setTimeout(function(){
-	//   renderMessages(data);
-	// },1000);
-});
+setInterval(function(){
+	//Fetch repo
+	$.getJSON('http://tiny-pizza-server.herokuapp.com/collections/chat-messages').done(function(data){
+		data = data.splice(0,50);
+		$('.message-area').html('');
+		renderMessages(data);
+	});	
+}, 1000); 
+
+// $(".message-container").scrollTop($('.message-gateway').height())
 
 //Display messages
 function renderMessages (array) {
@@ -69,8 +75,6 @@ function renderMessages (array) {
 	  } 
 	});
 };
-
-// setTimeout('renderMessages()', 1000);
 
 //Post a new message constructor
 function Post (newMessage, username) {
@@ -101,7 +105,6 @@ $('.message-form').submit(function(event){
   	$('.message-form')[0].reset();
 });
 
-
 // {
 // user:"", 
 // message:"", 
@@ -109,4 +112,3 @@ $('.message-form').submit(function(event){
 // meta:"", 
 // appID: static tag for identification
 // }
-

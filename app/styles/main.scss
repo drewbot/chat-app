@@ -43,6 +43,10 @@ body {
     }
 }
 
+.logo-reload {
+    cursor: pointer;
+}
+
 .chat {
     display: inline-block;
     padding-left: 2px;
@@ -63,6 +67,12 @@ body {
     &:hover {
         background-color: #91AAD0;
         border: 1px solid white;
+    }
+
+    &:active {
+        background-color: white;
+        border: 1px solid #91AAD0;
+        color: #91AAD0;
     }
 }
 
@@ -114,16 +124,62 @@ body {
     h1 {
         position: absolute;
         font-family: 'Droid Serif', serif;
-        top: 10px;
+        top: -5px;
         right: 20px;
     }
 
     h2 {
         position: absolute;
         font-family: 'Droid Serif', serif;
-        top: 70px;
+        top: -10px;
         right: 20px;
     }
+}
+
+.word-box-one {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 392px;
+    height: 65px;
+    background: #617AA1;
+    border-color: #617AA1;
+    border-radius: 4px 4px 0 4px;
+    line-height: 65px;
+}
+
+.word-box-two {
+    position: absolute;
+    top: 75px;
+    right: 10px;
+    width: 317px;
+    height: 55px;
+    background: #617AA1;
+    border-color: #617AA1;
+    border-radius: 0 0 0 4px;
+    line-height: 55px;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        background: #617AA1;
+        border-color: #617AA1; 
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 30px 30px 0;
+        border-color: transparent #617AA1 transparent transparent;
+        -webkit-box-shadow: 4px 5px 3px 0 rgba(0,0,0,0.3) ;
+        box-shadow: 4px 5px 3px 0 rgba(0,0,0,0.3) ;
+    }
+}
+
+.word-box-one,
+.word-box-two {
+  -webkit-box-shadow: 4px 5px 3px 0 rgba(0,0,0,0.3) ;
+  box-shadow: 4px 5px 3px 0 rgba(0,0,0,0.3) ;
 }
 
 //Overall Message container
@@ -190,7 +246,7 @@ img {
 .message-type {
     position: absolute;
     display: inline-block;
-    padding: 0 10px 0 10px;
+    padding: 0 10px 0 15px;
     top: 20px;
     width: 100%;
     height: 30px;
