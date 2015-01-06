@@ -10,6 +10,8 @@ $('.login').click(function(){
     $('.login').hide( "fast" );
 })
 
+var username
+
 //Store username
 $('.login-form').submit(function(event){
 	username = $('.login-type').val();
@@ -98,7 +100,7 @@ $('.message-form').submit(function(event){
 		alert('You must enter a message')
 	} else {
     	var message = $('.message-type').val();
-		freshPost = new Post(message, username);
+			freshPost = new Post(message, username);
   	}
   	event.preventDefault();
   	//Delete the input value on submit
